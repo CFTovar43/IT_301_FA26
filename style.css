@@ -1,48 +1,18 @@
 *{
-    padding:10px;
-    margin:0;
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
-
-
-section{  
-  margin: 20px 0;
+nav {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
 }
-
-ul{    
-  padding-left: 40px;
-}
-
-ul ul ul {
-  margin-top: 10px;
-}
-
-/* Add style here */
-
-section > ul > li:nth-child(1) {
-  color: royalblue;
-}
-section > ul > li:nth-child(2) {
-  color: forestgreen;
-}
-section > ul > li:nth-child(3) {
-  color: crimson;
-}
-section > ul > ul > li:nth-child(1) {
-  color: violet;
-  background-color: lightgray;
-  border-radius: 5px;
-}
-section > ul > ul > ul > li:nth-child(1) {
-  color: darkorange;
-  background-color: beige;
-  border-radius: 5px;
-  font-size: 10px;
-}
-section > ul > ul li:nth-child(3) {
-  color: violet;
-  background-color: lightgray;
-  border-radius: 5px;
-}
-section > ul > li:nth-child(5) {
-  color: royalblue;
+h2{
+    font-weight: 600;
+    box-shadow: 10px 10px 5px lightgray;
+    background-color: rgb(128, 126, 126);
+    text-decoration: underline;
+    color: rgb(112, 28, 25);
 }
