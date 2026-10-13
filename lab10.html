@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 10</title>
+
+    </head>
+    <body>
+        <script>
+            var response = Number(prompt("What is your total bill?"));
+            do {
+                    if (isNaN(response)) {
+                        response = Number(prompt("Please enter a valid number amount."));
+                    } else if (response == 0) {
+                        response = Number(prompt("Please enter a valid bill amount."));
+                    } else if (response === "") {
+                        response = Number(prompt("Please enter a valid bill amount."));
+                    } else if (response < 0) {
+                        response = Number(prompt("Input invalid. Please enter a valid positive bill amount."));
+                    }
+            } while (isNaN(response) || response == 0 || response === "" || response < 0);
+            var tip = response * 0.10;
+            console.log('Your bill is $' + response);
+            console.log('Your tip is $' + tip);
+            document.write('Your bill is $' + response + '<br>');
+            document.write('Your tip is $' + tip);
+        </script>
