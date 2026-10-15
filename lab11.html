@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript</title>
+        <style>
+            #box {
+                background-color: blue;
+                color: white;
+                font-size: 1.2em;
+                width: 200px;
+                padding: 3px;
+                text-align: center;
+                border-radius: 3px;
+                border: 2px solid black;
+            }
+
+            #box:hover {
+                cursor: pointer;
+            }
+            #box2 {
+                height: 75vh;
+            }
+        </style>
+
+        </head>
+        <body>
+            <div id= "box"> Click Me! 😊</div>
+            <div id="box2"></div>
+            <script>
+                const box = document.getElementById("box");
+
+                function mouseEnter(event) {
+                    box.innerText = "Do not click! 😠";
+                    box.style.backgroundColor = "yellow";
+                    console.log(event);
+                }
+
+                function mouseLeave(event) {
+                    box.innerText = "Phew! 😌"
+                    box.style.backgroundColor = "lightgreen";
+                    console.log(event);
+                }
+
+                function clickBox(event) {
+                    box.innerText = "Ouch! 🤕";
+                    box.style.backgroundColor = "red";
+                    console.log(event);
+                }
+
+                function doubleClickBox(event) {
+                    box.innerText = "Double trouble! 🤩";
+                    box.style.backgroundColor = "pink";
+                    console.log(event);
+                }
+
+                function mouseMove(event) {
+                    box.innerText = "I see you! 👀";
+                    box.style.backgroundColor = "lightblue";
+                    console.log(event);
+                }
+
+                box.addEventListener("mouseenter", mouseEnter);
+                box.addEventListener("mouseleave", mouseLeave);
+                box.addEventListener("click", clickBox);
+                box2.addEventListener("mousemove", mouseMove);
+                box.addEventListener("dblclick", event => {
+                    doubleClickBox(event);
+                });
+
+            </script>
+        </body>
+</html>
