@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 12</title>
+</head>
+<body>
+    <form action="#">
+        <label for="name"> What is your Name?</label>
+        <input type="text" id="name"> <br><br>
+
+        <button id="bttn" type="button"> Submit</button>
+    </form>
+    <p id="greeting"></p>
+
+    <form action="#">
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1"> <br><br>
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2"> <br><br>
+
+            <input type="radio" name = "add"> Add <br><br>
+            <input type="radio" name = "subtr"> Subtract <br><br>
+            <input type="radio" name = "mult" > Multiply <br><br>
+            <input type="radio" name = "div" > Divide <br><br>
+            <button id="select" type="button"> Select</button>
+            <button id="reset" type="reset"> Reset</button>
+    </form>
+    <p id="result"></p>
+    
+    <script> 
+        const name = document.getElementById("name");
+        const greeting = document.getElementById("greeting");
+
+        document.getElementById('bttn').addEventListener('click', function() {
+            greeting.textContent = `Hello ${name.value}`;
+            console.log(greeting.textContent);
+        });
+
+        const num1 = document.getElementById('num1');
+        const num2 = document.getElementById('num2');
+        const result = document.getElementById('result');
+
+        document.getElementById('select').addEventListener('click', function() {
+            const add = document.querySelector('[name = add]:checked');
+            const subtr = document.querySelector('[name = subtr]:checked');
+            const mult = document.querySelector('[name = mult]:checked');
+            const div = document.querySelector('[name = div]:checked');
+
+            if (add) {
+                result.textContent = Number(num1.value) + Number(num2.value);
+                console.log(result.textContent);
+            } else if (subtr) {
+                result.textContent = Number(num1.value) - Number(num2.value);
+                console.log(result.textContent);
+            } else if (mult) {
+                result.textContent = Number(num1.value) * Number(num2.value);
+                console.log(result.textContent);
+            } else if (div) {
+                result.textContent = Number(num1.value) / Number(num2.value);
+                console.log(result.textContent);
+            }
+        });
+
+    </script>
