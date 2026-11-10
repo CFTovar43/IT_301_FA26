@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .valid {
+            color: green;
+        }
+        .invalid {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="email">Email:</label>
+        <input type="text" id="email" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required pattern="[A-Za-z0-9]+$">
+        <button type="submit" id="submit">Submit</button>
+    </form>
+    <p id="password-length-message"></p>
+    <p id="password-special-message"></p>
+    <p id="password-uppercase-message"></p>
+    <script>
+        document.getElementById('submit').addEventListener('click', (event)=>{
+            event.preventDefault();
+            window.location.href = "success.html";
+        })
+
+        document.getElementById('password').addEventListener('input', () =>
+    {
+        const password = document.getElementById('password').value;
+        if (password.length < 6 == true)   {
+            document.getElementById('password-length-message').textContent = 'Password must be at least 6 characters long.';
+            document.getElementById('password-length-message').classList.add('invalid');
+            
+        } else {
+            document.getElementById('password-length-message').textContent = 'Password is long enough.';
+            document.getElementById('password-length-message').classList.remove('invalid');
+            document.getElementById('password-length-message').classList.add('valid');
+        }
+        if (/[!@#$%^&*(),.?":{}|<>]/.test(password) == false) {
+            document.getElementById('password-special-message').textContent = 'Password must contain a special character.';
+            document.getElementById('password-special-message').classList.add('invalid');
+        } else {
+            document.getElementById('password-special-message').textContent = 'Password contains a special character.';
+            document.getElementById('password-special-message').classList.remove('invalid');
+            document.getElementById('password-special-message').classList.add('valid');
+        }
+        if (/[A-Z]/.test(password) == false) {
+            document.getElementById('password-uppercase-message').textContent = 'Password must contain an uppercase letter.';
+            document.getElementById('password-uppercase-message').classList.add('invalid');
+        } else {
+            document.getElementById('password-uppercase-message').textContent = 'Password contains an uppercase letter.';
+            document.getElementById('password-uppercase-message').classList.remove('invalid');
+            document.getElementById('password-uppercase-message').classList.add('valid');
+        }
+    })
+    </script>
+</body>
+</html>
